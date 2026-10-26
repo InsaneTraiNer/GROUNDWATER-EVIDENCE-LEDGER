@@ -1,0 +1,96 @@
+@import "@fontsource/public-sans/latin-400.css";
+@import "@fontsource/public-sans/latin-500.css";
+@import "@fontsource/public-sans/latin-600.css";
+@import "@fontsource/newsreader/latin-400.css";
+@import "@fontsource/newsreader/latin-500.css";
+@import "@fontsource/newsreader/latin-600.css";
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Public Sans", "Segoe UI", system-ui, sans-serif;
+  --font-display: "Newsreader", "Iowan Old Style", Palatino, Georgia, serif;
+  --color-paper: #f1f0ec;
+  --color-cream: #f7f6f3;
+  --color-sand: #e7e5df;
+  --color-ink: #1a1c1e;
+  --color-muted: #4f555a;
+  --color-line: #ddd9d2;
+  --color-accent: #243044;
+  --color-on-accent: #f4f5f6;
+  --color-ok: #1e4a34;
+  --color-ok-bg: #e4eee8;
+  --color-warn: #6b4524;
+  --color-warn-bg: #f3ece3;
+  --color-bad: #7f2e2e;
+  --color-bad-bg: #f6e6e4;
+  --text-display: clamp(2.25rem, 1.3rem + 2.2vw, 3.5rem);
+  --text-display--line-height: 1.1;
+  --radius-sm: 0.5rem;
+  --radius-md: 0.75rem;
+  --radius-lg: 1rem;
+  --radius-xl: 1.5rem;
+}
+
+@layer base {
+  html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background: var(--color-paper);
+    color: var(--color-ink);
+  }
+
+  body {
+    font-family: var(--font-sans);
+    background: var(--color-paper);
+    color: var(--color-ink);
+    line-height: 1.5;
+    min-height: 100vh;
+  }
+
+  h1,
+  h2,
+  h3 {
+    text-wrap: balance;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+
+  button:not(:disabled),
+  [role="button"]:not(:disabled),
+  summary {
+    cursor: pointer;
+  }
+
+  .btn {
+    transition-property: background-color, opacity;
+    transition-duration: 150ms;
+    transition-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  .font-display {
+    font-family: var(--font-display);
+  }
+
+  .text-display {
+    font-size: clamp(2.25rem, 1.3rem + 2.2vw, 3.5rem);
+    line-height: 1.1;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .btn {
+    transition: none;
+  }
+}
+
+@media print {
+  .no-print {
+    display: none !important;
+  }
+
+  body {
+    background: white;
+  }
+}
